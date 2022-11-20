@@ -20,4 +20,5 @@
     <input type="password" id="confirm-password" name="confirm_password" class="form-control" required value="<%- confirm_password ? confirm_password : "" %>" />
   </div>
   <button type="submit" class="btn btn-primary">Sign Up</button>
+  <%- include("_form_errors") %>
 </form>
