@@ -12,6 +12,7 @@ router.get("/login", users_controller.login_get);
 
 /* GET users signup */
 router.get("/signup", users_controller.signup_get);
+
 /*POST users signup */
 router.post("/signup", users_controller.signup_post);
 
