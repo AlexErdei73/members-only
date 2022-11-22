@@ -6,10 +6,11 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/user");
 const bcrypt = require("bcryptjs");
+const MongoStore = require("connect-mongo"); //We need it to create the store for express session
 //var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 require("dotenv").config();
-const flash = require('connect-flash');
+const flash = require("connect-flash"); //We need it to flash error messages at login
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -36,7 +37,7 @@ app.use(express.urlencoded({ extended: false }));
 passport.use(
   new LocalStrategy((username, password, done) => {
     User.findOne({ user_name: username }, (err, user) => {
-      if (err) { 
+      if (err) {
         return done(err);
       }
       if (!user) {
@@ -45,40 +46,51 @@ passport.use(
       bcrypt.compare(password, user.hash, (err, res) => {
         if (res) {
           // passwords match! log user in
-          return done(null, user)
+          return done(null, user);
         } else {
           // passwords do not match!
-          return done(null, false, { message: "Incorrect password" })
+          return done(null, false, { message: "Incorrect password" });
         }
-      })
+      });
     });
   })
 );
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
+passport.deserializeUser(function (id, done) {
+  User.findById(id, function (err, user) {
     done(err, user);
   });
 });
 
 //app.use(cookieParser());
-app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: mongoDB,
+    }),
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
 app.use(express.static(path.join(__dirname, "public")));
 
-
-
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   const errorMessages = req.flash().error;
-  res.locals.errors = errorMessages ? errorMessages.map(error => {return { msg: error }}) : [];
+  res.locals.errors = errorMessages
+    ? errorMessages.map((error) => {
+        return { msg: error };
+      })
+    : [];
   next();
 });
 
@@ -86,11 +98,14 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/posts", postsRouter);
 
-app.post("/users/login", passport.authenticate("local", {
-  successRedirect: "/posts",
-  failureRedirect: "/users/login",
-  failureFlash: true
-}))
+app.post(
+  "/users/login",
+  passport.authenticate("local", {
+    successRedirect: "/posts",
+    failureRedirect: "/users/login",
+    failureFlash: true,
+  })
+);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
