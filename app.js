@@ -9,6 +9,7 @@ const bcrypt = require("bcryptjs");
 //var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 require("dotenv").config();
+const flash = require('connect-flash');
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -68,6 +69,7 @@ passport.deserializeUser(function(id, done) {
 app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -75,13 +77,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
-  if (req.user) {
-    res.locals.errors = [];
-  } else if (req.session) {
-    res.locals.errors = [{ msg: req.session.message }];
-  } else {
-    res.locals.errors = [];
-  }
+  const errorMessages = req.flash().error;
+  res.locals.errors = errorMessages ? errorMessages.map(error => {return { msg: error }}) : [];
   next();
 });
 
@@ -91,8 +88,8 @@ app.use("/posts", postsRouter);
 
 app.post("/users/login", passport.authenticate("local", {
   successRedirect: "/posts",
-  failureRedirect: "/",
-  failureMessage: "Invalid Login Credentials"
+  failureRedirect: "/users/login",
+  failureFlash: true
 }))
 
 // catch 404 and forward to error handler
