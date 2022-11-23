@@ -8,6 +8,7 @@
   --bg-error: rgb(255, 211, 211);
   --color-error: rgb(196, 0, 0);
   --bg-light: rgb(177, 177, 177);
+  --bg-nav: black;
 }
 
 body {
@@ -16,6 +17,7 @@ body {
   background: var(--bg-color);
   color: var(--color);
   box-sizing: border-box;
+  margin-top: 50px;
 }
 
 a {
@@ -89,4 +91,61 @@ ul {
   border-radius: 3px;
   margin: 5px 0;
   max-width: 370px;
+}
+
+.nav {
+  background-color: var(--bg-nav);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav ul{
+  flex: 1;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: large;
+}
+
+.nav a:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.nav a:focus-visible {
+  border: 2px solid var(--color-shadow);
+  box-shadow: 0 0 3px 1px var(--color-shadow);
+}
+
+.nav-item, .logo {
+  margin: 0 28px;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+@media (max-width: 650px) {
+  .logo {
+    display: none;
+  }
+
+  .nav ul {
+    justify-content: space-between;
+    margin-right: 28px;
+    margin-left: 28px;
+  }
+
+  .nav-item {
+    margin: 0;
+  }
 }
