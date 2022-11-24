@@ -1,15 +1,15 @@
 <form action="" method="POST">
     <div class="form-group">
         <label for="title" class="form-label">Title*</label>
-        <input type="text" id="title" name="title" class="form-control" required>
+        <input type="text" id="title" name="title" class="form-control" required value="<% form_title ? form_title : "" %>">
     </div>
     <div class="form-group">
         <label for="youtube_url" class="form-label">YouTube URL*</label>
-        <input type="text" name="youtube_url" id="youtube_url" class="form-control" placeholder="Copy here from the browser" required>
+        <input type="text" name="youtube_url" id="youtube_url" class="form-control" placeholder="Copy here from the browser" required value="<% youtube_url ? youtube_url : "" %>">
     </div>
     <div class="form-group">
         <label for="description" class="form-label">Description</label>
-        <textarea name="description" id="description" cols="26" rows="10" class="form-control textarea"></textarea>
+        <textarea name="description" id="description" cols="26" rows="10" class="form-control textarea" value="<% description ? description : "" %>"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Post</button>
     <%- include("_form_errors") %> 

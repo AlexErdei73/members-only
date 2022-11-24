@@ -8,8 +8,9 @@ const PostSchema = new Schema(
 			ref: "User",
 			required: [true, "Post needs to have an author"],
 		},
-		youtube_video_url: String,
-		message: String,
+		title: { type: String, required: [true, "Post need to have a title"] },
+		youtube_url: { type: String, required: [true, "YouTube video url is required"]},
+		description: String,
 	},
 	{ timestamps: true }
 );

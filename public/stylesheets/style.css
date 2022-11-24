@@ -141,6 +141,7 @@ ul {
 
 .textarea {
   height: max-content;
+  width: 253px;
 }
 
 @media (max-width: 650px) {
