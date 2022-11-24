@@ -1,9 +1,9 @@
 var express = require("express");
 var router = express.Router();
 
-/* REDIRECT home page to the login page */
+/* REDIRECT home page to the posts page */
 router.get("/", function (req, res, next) {
-  res.redirect("/users/login");
+  res.redirect("/posts");
 });
 
 module.exports = router;

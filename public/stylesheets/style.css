@@ -64,6 +64,11 @@ a:focus {
   box-shadow: none;
   border: 1px solid var(--bg-light);
   border-radius: 3px;
+  text-decoration: none;
+}
+
+.link-btn {
+  padding: 8px 12px 5px;
 }
 
 .btn:focus {
@@ -132,6 +137,10 @@ ul {
 
 .logo {
   font-weight: bold;
+}
+
+.textarea {
+  height: max-content;
 }
 
 @media (max-width: 650px) {
