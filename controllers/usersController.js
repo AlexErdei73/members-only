@@ -6,6 +6,19 @@ exports.login_get = function (req, res, next) {
 	res.render("index", { title: "Log In" });
 };
 
+exports.logout_get = function (req, res, next) {
+	if (!req.user) {
+		res.redirect("/users/login", { title: "Log In" });
+		return;
+	}
+	req.logout((err) => {
+		if (err) {
+			return next(err);
+		}
+		res.redirect("/");
+	})
+}
+ 
 exports.signup_get = function (req, res, next) {
 	res.render("signup", {
 		title: "Sign Up",

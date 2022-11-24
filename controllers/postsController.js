@@ -6,6 +6,10 @@ exports.posts_get = function (req, res, next) {
 };
 
 exports.create_post_get = function(req, res, next) {
+  if (!req.user) {
+    res.redirect("/users/login");
+    return;
+  }
   res.render("create_post", { 
     title: "Create Post", 
     form_title: "",

@@ -10,6 +10,9 @@ router.get("/", function (req, res, next) {
 /* GET users login */
 router.get("/login", users_controller.login_get);
 
+/* GET users logout */
+router.get("/logout", users_controller.logout_get);
+
 /* GET users signup */
 router.get("/signup", users_controller.signup_get);
 
