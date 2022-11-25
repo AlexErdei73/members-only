@@ -1,10 +1,13 @@
-<div class="container">
-    <div class="card">
-        <div class="card-title"><%= post.title %></div>
-        <div class="card-body">
-            <iframe src="<%= post.youtube_url.replace("watch?v=", "embed/") %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p><span><%= post.description %></span></p>
-        </div>
+<div class="card">
+    <div class="card-title"><%= post.title %></div>
+    <div class="card-body">
+        <iframe src="<%= post.youtube_url.replace("watch?v=", "embed/") %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p><%= post.description %></p>
     </div>
-    <div class="col"></div>
+    <% if (currentUser) { %>
+        <div class="card-footer">
+        <div><%= post.createdAt.toISOString().slice(0, 10) %></div> 
+        <div>By <%= post.author.name %></div>
+        </div> 
+    <% } %>
 </div>

@@ -171,8 +171,8 @@ ul {
 
 .card-body p {
   flex: 0 1 400px;
-  margin: 10px;
   font-size: large;
+  margin: 10px;
 }
 
 .card {
@@ -181,6 +181,18 @@ ul {
   margin: 20px;
   margin-left: 0;
   max-width: 800px;
+}
+
+.card-footer {
+  color: var(--color-link);
+  background-color: var(--bg-nav);
+  border-top: 1px solid var(--color-link);
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer div {
+  margin: 10px;
 }
 
 @media (max-width: 650px) {
@@ -205,6 +217,10 @@ ul {
 
   .card-body iframe {
     flex-shrink: 1;
+  }
+
+  .card-body p {
+    margin: 0 10px;
   }
 
   .card {

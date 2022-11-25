@@ -2,7 +2,10 @@ const Post = require("../models/post");
 const { body, validationResult } = require("express-validator");
 
 exports.posts_get = function (req, res, next) {
-  Post.find({}).exec((err, posts) => {
+  Post.find({})
+    .sort({"createdAt": "descending"})
+    .populate("author")
+    .exec((err, posts) => {
     if (err) {
       return next(err);
     }
