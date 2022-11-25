@@ -101,6 +101,7 @@ ul {
 
 .nav {
   background-color: var(--bg-nav);
+  border-bottom: 1px solid var(--color-link);
   width: 100%;
   position: fixed;
   top: 0;
@@ -148,6 +149,40 @@ ul {
   margin: 15px;
 }
 
+.card-title {
+  background-color: var(--bg-nav);
+  color: var(--color-link);
+  border-bottom: 1px solid var(--color-link);
+  padding: 10px;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.card-body {
+  display: flex;
+}
+
+.card-body iframe {
+  flex: 0 0 400px;
+  height: 300px;
+  margin: 10px;
+}
+
+.card-body p {
+  flex: 0 1 400px;
+  margin: 10px;
+  font-size: large;
+}
+
+.card {
+  border: 1px solid var(--color-link);
+  border-radius: 3px;
+  margin: 20px;
+  margin-left: 0;
+  max-width: 800px;
+}
+
 @media (max-width: 650px) {
   .logo {
     display: none;
@@ -162,4 +197,18 @@ ul {
   .nav-item {
     margin: 0;
   }
+
+  .card-body {
+    flex-wrap: wrap;
+    max-width: min-content;
+  }
+
+  .card-body iframe {
+    flex-shrink: 1;
+  }
+
+  .card {
+    max-width: min-content;
+  }
+
 }

@@ -2,7 +2,15 @@ const Post = require("../models/post");
 const { body, validationResult } = require("express-validator");
 
 exports.posts_get = function (req, res, next) {
-  res.render("posts", { title: "Posts" });
+  Post.find({}).exec((err, posts) => {
+    if (err) {
+      return next(err);
+    }
+    res.render("posts", { 
+      title: "",
+      posts: posts,
+    });
+  })
 };
 
 exports.create_post_get = function(req, res, next) {
@@ -21,6 +29,8 @@ exports.create_post_get = function(req, res, next) {
 exports.create_post_post = [
   body("title")
     .trim()
+    .custom((value) => value.indexOf("'") === -1)
+    .withMessage("Title cannot contain apstrophe")
     .escape()
     .isLength({ min: 1 })
     .withMessage("Title is required"),
@@ -31,6 +41,8 @@ exports.create_post_post = [
   body("description")
     .optional({ checkFalsy: true })
     .trim()
+    .custom((value) => value.indexOf("'") === -1)
+    .withMessage("Description cannot contain apstrophe")
     .escape(),
   function(req, res, next) {
     const errors = validationResult(req);
