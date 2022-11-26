@@ -1,6 +1,7 @@
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
+require("dotenv").config();
 
 exports.login_get = function (req, res, next) {
 	res.render("index", { title: "Log In" });
@@ -16,9 +17,9 @@ exports.logout_get = function (req, res, next) {
 			return next(err);
 		}
 		res.redirect("/");
-	})
-}
- 
+	});
+};
+
 exports.signup_get = function (req, res, next) {
 	res.render("signup", {
 		title: "Sign Up",
@@ -92,3 +93,35 @@ exports.signup_post = [
 		});
 	},
 ];
+
+exports.membership_post = function (req, res, next) {
+	if (!req.user) {
+		res.redirect("/users/login", { title: "Log In" });
+		return;
+	}
+	const id = req.user._id;
+	bcrypt.compare(
+		req.body.member_password,
+		process.env.MEMBER_PASSWORD,
+		(err, success) => {
+			if (err) {
+				return next(err);
+			}
+			if (success) {
+				User.findByIdAndUpdate(
+					id,
+					{ membership_status: "member" },
+					{},
+					(err) => {
+						if (err) {
+							return next(err);
+						}
+						res.redirect("/posts");
+					}
+				);
+			} else {
+				res.redirect("/posts");
+			}
+		}
+	);
+};

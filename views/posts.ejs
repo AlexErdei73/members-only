@@ -1,8 +1,10 @@
 <%- include("_header") %>
 <% if (currentUser) { %>
     <a href="/posts/create" class="btn btn-primary link-btn">Create Post</a>
-    <a href="/users/logout" class="btn btn-primary link-btn m-3">Log Out</a> 
-    <button type="button" class="btn btn-primary" id="btn-membership">Membership</button>
+    <a href="/users/logout" class="btn btn-primary link-btn m-3">Log Out</a>
+    <% if (currentUser.membership_status === "user") { %>
+        <button type="button" class="btn btn-primary" id="btn-membership">Membership</button>
+    <% } %>
 <% } %>
 <% if (posts.length > 0) { %>
     <% posts.forEach(function(post) { %>

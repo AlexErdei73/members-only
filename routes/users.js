@@ -19,4 +19,7 @@ router.get("/signup", users_controller.signup_get);
 /*POST users signup */
 router.post("/signup", users_controller.signup_post);
 
+/*POST users membership*/
+router.post("/membership", users_controller.membership_post);
+
 module.exports = router;
