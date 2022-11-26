@@ -4,7 +4,7 @@
         <iframe src="<%= post.youtube_url.replace("watch?v=", "embed/") %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <p><%= post.description %></p>
     </div>
-    <% if (currentUser) { %>
+    <% if (currentUser && currentUser.membership_status !== "user") { %>
         <div class="card-footer">
         <div><%= post.createdAt.toISOString().slice(0, 10) %></div> 
         <div>By <%= post.author.name %></div>

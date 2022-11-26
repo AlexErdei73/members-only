@@ -9,6 +9,7 @@
   --color-error: rgb(196, 0, 0);
   --bg-light: rgb(177, 177, 177);
   --bg-nav: black;
+  --bg-modal: rgba(0, 0, 0, 0.501);
 }
 
 body {
@@ -193,6 +194,40 @@ ul {
 
 .card-footer div {
   margin: 10px;
+}
+
+.modal-background {
+  background-color: var(--bg-modal);
+  color: var(--color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  display: none;
+}
+
+.modal-show {
+  display: flex;
+}
+
+.modal {
+  margin: auto;
+  width: 300px;
+  height: 200px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--color-link);
+  border-radius: 3px;
+  opacity: 1;
+}
+
+.modal-title {
+  background-color: var(--bg-nav);
+  color: var(--color-link);
+  font-size:large;
+  border-bottom: 1px solid var(--color-link);
+  padding: 5px;
 }
 
 @media (max-width: 650px) {
