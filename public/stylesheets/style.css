@@ -15,7 +15,11 @@
 body {
   padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: var(--bg-color);
+  background: var(--bg-color) url("../images/Chinese-Dragon.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: contain;
   color: var(--color);
   box-sizing: border-box;
   margin-top: 50px;
@@ -162,6 +166,7 @@ ul {
 
 .card-body {
   display: flex;
+  background-color: var(--bg-color);
 }
 
 .card-body iframe {
