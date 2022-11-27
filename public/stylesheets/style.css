@@ -256,19 +256,28 @@ ul {
 
   .card-body {
     flex-wrap: wrap;
-    max-width: min-content;
+    width: 100%;
   }
 
   .card-body iframe {
-    flex-shrink: 1;
+    flex: 1 1 280px;
+    width: 100%;
+    max-width: 400px;
+    height: 210px;
   }
 
   .card-body p {
     margin: 0 10px;
+    /*max-width: 280px;*/
   }
 
   .card {
-    max-width: min-content;
+    max-width: 420px;
+    margin: 20px 0;
+  }
+
+  .m-3 {
+    margin: 5px;
   }
 
 }

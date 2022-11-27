@@ -12,5 +12,5 @@ function onClickBtnCancel(event) {
     modalBackground.classList.remove("modal-show");
 }
 
-btnMembership.addEventListener("click", onClickBtnMembership);
+if (btnMembership) btnMembership.addEventListener("click", onClickBtnMembership);
 btnCancel.addEventListener("click", onClickBtnCancel);
