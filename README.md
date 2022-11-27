@@ -6,9 +6,9 @@ The Odin Project. Users can show their favourite YouTube videos here with their 
 and there is the admin of the site. You can get the member status after registration with typing in the following password:
 
 No, it's not going to be so easy for you:) If you visit my [fakebook](https://alexerdei73.github.io/fakebook) app, there is 
-the latest post. All you need to know the name of that group, which is on the video. This is the member password with lowercase and dash between words. The thing is a bit tricky as it is the latest post now, but if other members post there they can confuse you, so try to find the right post there:) 
+the latest post. All you need to know the name of that song, which is on the video. This is the member password with capitalizes first letter and spaces between words. The thing is a bit tricky as it is the latest post now, but if other members post there they can confuse you, so try to find the right post there:) 
 
-Registered users can make posts with videos, but they can't see, who created the other posts and when. 
+Registered users can make posts with videos, but they can't see, who created the other posts and when. Registered userscan like videos as well. This is going to be an extra functionality compared to TOP requirements. 
 
 Members can see, who created the posts and when and they can create anonym posts. 
 
