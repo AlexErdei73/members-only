@@ -8,4 +8,6 @@ router.get("/create", posts_controller.create_post_get);
 
 router.post("/create", posts_controller.create_post_post);
 
+router.get("/like/:id", posts_controller.like_post_get);
+
 module.exports = router;

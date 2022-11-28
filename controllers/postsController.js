@@ -76,3 +76,29 @@ exports.create_post_post = [
     })
   }
 ]
+
+exports.like_post_get = function(req, res, next) {
+  if (!req.user) {
+    res.redirect("/users/login");
+  }
+  Post.findById(req.params.id, {}, {}, (err, post) => {
+    if (err) {
+      return next(err);
+    }
+    const likes = post.likes;
+    if (likes.indexOf(req.user._id) === -1) {
+      likes.push(req.user._id);
+    } else {
+      likes.splice(likes.indexOf(req.user._id), 1);
+    };
+    post.update({
+      _id: req.params.id,
+      likes: likes,
+    }, (err) => {
+      if (err) {
+        return next(err);
+      }
+      res.redirect("/posts");
+    })
+  })
+}

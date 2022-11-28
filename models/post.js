@@ -11,6 +11,7 @@ const PostSchema = new Schema(
 		title: { type: String, required: [true, "Post need to have a title"] },
 		youtube_url: { type: String, required: [true, "YouTube video url is required"]},
 		description: String,
+		likes: [{ type : mongoose.Schema.Types.ObjectId, ref: 'User' }],
 	},
 	{ timestamps: true }
 );

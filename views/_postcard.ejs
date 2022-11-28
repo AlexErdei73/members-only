@@ -5,8 +5,10 @@
         <div class="card-info">
             <p><%= post.description %></p>
             <div class="likes">
-                <div class="like-number"><img src="/images/like.png" width="30px" height="30px"><span>50</span></div>
-                <a href="/posts/like" class="btn btn-primary link-btn"><img src="/images/like.png" width="20px" height="20px" class="btn-icon"> Like</a>
+                <div class="like-number"><img src="/images/like.png" width="30px" height="30px"><span><%= post.likes ? post.likes.length : 0 %></span></div>
+                <% if(currentUser) { %>
+                    <a href="/posts/like/<%= post._id %>" class="btn btn-primary link-btn"><img src="/images/like.png" width="20px" height="20px" class="btn-icon"> Like</a>
+                <% } %> 
             </div>
         </div>
     </div>
