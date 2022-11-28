@@ -175,10 +175,8 @@ ul {
   margin: 10px;
 }
 
-.card-body p {
-  flex: 0 1 400px;
-  font-size: large;
-  margin: 10px;
+.card-info p {
+  margin: 0;
 }
 
 .card {
@@ -187,6 +185,7 @@ ul {
   margin: 20px;
   margin-left: 0;
   max-width: 800px;
+  min-width: 590px;
 }
 
 .card-footer {
@@ -239,6 +238,35 @@ ul {
   padding: 20px;
 }
 
+.btn-icon {
+  margin-bottom: -5px;
+}
+
+.like-number {
+  flex-shrink: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 55px;
+}
+
+.likes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-info {
+  flex: 0 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 10px;
+  font-size: large;
+  min-width: 150px;
+}
+
 @media (max-width: 650px) {
   .logo {
     display: none;
@@ -266,13 +294,17 @@ ul {
     height: 210px;
   }
 
-  .card-body p {
-    margin: 0 10px;
-    /*max-width: 280px;*/
+  .card-info {
+    margin-top: 0;
+  }
+
+  .card-info p {
+    margin-bottom: 10px;
   }
 
   .card {
     max-width: 420px;
+    min-width: 0;
     margin: 20px 0;
   }
 
