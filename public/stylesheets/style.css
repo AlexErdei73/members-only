@@ -312,4 +312,8 @@ ul {
     margin: 5px;
   }
 
+  body {
+    background: var(--bg-color);
+  }
+
 }
