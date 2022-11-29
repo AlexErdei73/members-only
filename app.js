@@ -15,6 +15,7 @@ const flash = require("connect-flash"); //We need it to flash error messages at 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var postsRouter = require("./routes/posts");
+var aboutRouter = require("./routes/about");
 
 var app = express();
 
@@ -95,6 +96,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/", indexRouter);
+app.use("/about", aboutRouter);
 app.use("/users", usersRouter);
 app.use("/posts", postsRouter);
 

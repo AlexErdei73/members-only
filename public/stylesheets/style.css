@@ -267,6 +267,19 @@ ul {
   min-width: 150px;
 }
 
+article {
+  width: 70%;
+  min-width: 300px;
+  padding: 0 10px;
+  border: 1px solid var(--color-link);
+  border-radius: 3px;
+  background: var(--bg-color);
+}
+
+h2 {
+  color: var(--color-link);
+}
+
 @media (max-width: 650px) {
   .logo {
     display: none;
