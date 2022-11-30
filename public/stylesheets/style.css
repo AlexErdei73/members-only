@@ -16,13 +16,13 @@ body {
   padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: var(--bg-color) url("../images/Chinese-Dragon.png");
-  background-position: right center;
+  background-position: right top 100px;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: contain;
+  background-size: auto calc(100vh - 100px);
   color: var(--color);
   box-sizing: border-box;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 a {
@@ -186,6 +186,7 @@ ul {
   border: 1px solid var(--color-link);
   border-radius: 3px;
   margin: 20px;
+  margin-top: 0;
   margin-left: 0;
   max-width: 800px;
   min-width: 590px;
@@ -291,6 +292,19 @@ h2 {
   position: absolute;
   top: 2px;
   right: 2px;
+}
+
+.buttons {
+  position: fixed;
+  top: 51px;
+  left: 0;
+  background-color: var(--bg-color);
+  z-index: 10;
+  height: 50px;
+  width: 100%;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 650px) {
