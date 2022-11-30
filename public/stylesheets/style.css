@@ -109,6 +109,7 @@ ul {
   border-bottom: 1px solid var(--color-link);
   width: 100%;
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   display: flex;
@@ -116,7 +117,7 @@ ul {
   align-items: center;
 }
 
-.nav ul{
+.nav ul {
   flex: 1;
   list-style-type: none;
   display: flex;
@@ -138,7 +139,8 @@ ul {
   box-shadow: 0 0 3px 1px var(--color-shadow);
 }
 
-.nav-item, .logo {
+.nav-item,
+.logo {
   margin: 0 28px;
 }
 
@@ -162,6 +164,7 @@ ul {
   text-align: center;
   font-size: large;
   font-weight: bold;
+  position: relative;
 }
 
 .card-body {
@@ -229,7 +232,7 @@ ul {
 .modal-title {
   background-color: var(--bg-nav);
   color: var(--color-link);
-  font-size:large;
+  font-size: large;
   border-bottom: 1px solid var(--color-link);
   padding: 5px;
 }
@@ -280,6 +283,16 @@ h2 {
   color: var(--color-link);
 }
 
+.btn-close {
+  background-color: var(--bg-nav);
+  color: var(--color-link);
+  font-size: large;
+  font-weight: bold;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
 @media (max-width: 650px) {
   .logo {
     display: none;
@@ -328,5 +341,4 @@ h2 {
   body {
     background: var(--bg-color);
   }
-
 }

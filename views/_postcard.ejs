@@ -1,21 +1,26 @@
 <div class="card">
-    <div class="card-title"><%= post.title %></div>
-    <div class="card-body">
-        <iframe src="<%= post.youtube_url.replace("watch?v=", "embed/") %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="card-info">
-            <p><%= post.description %></p>
-            <div class="likes">
-                <div class="like-number"><img src="/images/like.png" width="30px" height="30px"><span><%= post.likes ? post.likes.length : 0 %></span></div>
-                <% if(currentUser) { %>
-                    <a href="/posts/like/<%= post._id %>" class="btn btn-primary link-btn"><img src="/images/like.png" width="20px" height="20px" class="btn-icon"> Like</a>
-                <% } %> 
-            </div>
-        </div>
-    </div>
-    <% if (currentUser && currentUser.membership_status !== "user") { %>
-        <div class="card-footer">
-        <div><%= post.createdAt.toISOString().slice(0, 10) %></div> 
-        <div>By <%= post.author.name %></div>
-        </div> 
+  <div class="card-title">
+    <%= post.title %>
+    <% if (currentUser && currentUser.membership_status === "admin") { %>
+    <a href="/posts/delete/<%= post._id %>" class="btn link-btn btn-close">X</a>
     <% } %>
+  </div>
+  <div class="card-body">
+    <iframe src="<%= post.youtube_url.replace("watch?v=", "embed/") %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="card-info">
+      <p><%= post.description %></p>
+      <div class="likes">
+        <div class="like-number"><img src="/images/like.png" width="30px" height="30px"><span><%= post.likes ? post.likes.length : 0 %></span></div>
+        <% if(currentUser) { %>
+        <a href="/posts/like/<%= post._id %>" class="btn btn-primary link-btn"><img src="/images/like.png" width="20px" height="20px" class="btn-icon"> Like</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <% if (currentUser && currentUser.membership_status !== "user") { %>
+  <div class="card-footer">
+    <div><%= post.createdAt.toISOString().slice(0, 10) %></div>
+    <div>By <%= post.author.name %></div>
+  </div>
+  <% } %>
 </div>
