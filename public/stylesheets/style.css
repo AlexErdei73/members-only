@@ -13,16 +13,38 @@
 }
 
 body {
-  padding: 20px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: var(--bg-color) url("../images/Chinese-Dragon.png");
-  background-position: right top 100px;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: auto calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 1.25em;
+  font: 1rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: var(--bg-color);
   color: var(--color);
   box-sizing: border-box;
-  margin-top: 100px;
+  margin-top: 1.75em;
+}
+
+h1 {
+  text-align: center;
+  margin: 0.25em 0 0 0;
+}
+
+.dragon {
+  background: var(--bg-color) url("../images/Chinese-Dragon.png");
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 400px;
+  max-height: 65vh;
+  flex: 0 1 12.5em;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
 }
 
 a {
@@ -44,7 +66,7 @@ a:focus {
 }
 
 .form-label {
-  min-width: 130px;
+  min-width: 140px;
   margin-right: 10px;
 }
 
@@ -185,11 +207,10 @@ ul {
 .card {
   border: 1px solid var(--color-link);
   border-radius: 3px;
-  margin: 20px;
-  margin-top: 0;
-  margin-left: 0;
+  margin: 20px auto;
   max-width: 800px;
   min-width: 590px;
+  width: 100%;
 }
 
 .card-footer {
@@ -202,6 +223,11 @@ ul {
 
 .card-footer div {
   margin: 10px;
+}
+
+.card.dragon {
+  min-height: 400px;
+  background-position: center;
 }
 
 .modal-background {
@@ -345,14 +371,31 @@ h2 {
   .card {
     max-width: 420px;
     min-width: 0;
-    margin: 20px 0;
   }
 
   .m-3 {
     margin: 5px;
   }
+}
+
+@media (orientation: portrait) {
+  article {
+    width: calc(100% - 20px);
+  }
 
   body {
-    background: var(--bg-color);
+    font-size: 200%;
+  }
+
+  .dragon {
+    background-position: center;
+  }
+
+  .form-label {
+    min-width: 280px;
+  }
+
+  nav {
+    font-size: large !important;
   }
 }
