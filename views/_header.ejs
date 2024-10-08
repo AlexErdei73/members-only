@@ -8,5 +8,5 @@
 
 	<body>
 		<%- include("_navigation") %>
-		<h1><%= title %></h1>
+		<h1 class=<%= (title==="") ? "home" : "" %>><%= title %></h1>
 

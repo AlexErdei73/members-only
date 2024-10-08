@@ -18,6 +18,7 @@ body {
   justify-content: center;
   gap: 0.5em;
   padding: 1.25em;
+  padding-top: 3em;
   font: 1rem "Lucida Grande", Helvetica, Arial, sans-serif;
   background: var(--bg-color);
   color: var(--color);
@@ -27,16 +28,24 @@ body {
 
 h1 {
   text-align: center;
-  margin: 0.25em 0 0 0;
+  margin: -0.5em 0 0.25em 0;
+}
+
+h1.home {
+  display: none;
+}
+
+p {
+  margin: 0.5em 0;
 }
 
 .dragon {
   background: var(--bg-color) url("../images/Chinese-Dragon.png");
-  background-position: left top;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   height: 400px;
-  max-height: 65vh;
+  max-height: 60vh;
   flex: 0 1 12.5em;
 }
 
@@ -44,7 +53,6 @@ h1 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2em;
 }
 
 a {
@@ -207,7 +215,7 @@ ul {
 .card {
   border: 1px solid var(--color-link);
   border-radius: 3px;
-  margin: 20px auto;
+  margin: 32px auto 20px;
   max-width: 800px;
   min-width: 590px;
   width: 100%;
@@ -383,12 +391,8 @@ h2 {
     width: calc(100% - 20px);
   }
 
-  body {
+  .content {
     font-size: 200%;
-  }
-
-  .dragon {
-    background-position: center;
   }
 
   .form-label {
@@ -397,5 +401,9 @@ h2 {
 
   nav {
     font-size: large !important;
+  }
+
+  h1 {
+    margin: 1em;
   }
 }
