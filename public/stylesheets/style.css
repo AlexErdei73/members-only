@@ -196,7 +196,7 @@ ul {
 	border-bottom: 1px solid var(--color-link);
 	padding: 0.625em;
 	text-align: center;
-	font-size: large;
+	font-size: 120%;
 	font-weight: bold;
 	position: relative;
 }
@@ -223,6 +223,7 @@ ul {
 	max-width: 50em;
 	min-width: 36.875em;
 	width: 100%;
+	font-size: inherit;
 }
 
 .card-footer {
@@ -313,7 +314,7 @@ ul {
 	justify-content: space-between;
 	align-items: stretch;
 	margin: 0.625em;
-	font-size: large;
+	font-size: 120%;
 	min-width: 9.375em;
 }
 
@@ -399,7 +400,7 @@ h2 {
 	}
 
 	body {
-		font-size: clamp(0.5rem, 1.5vw, 2rem) !important;
+		font-size: clamp(0.25rem, 1vw, 2rem) !important;
 	}
 }
 
