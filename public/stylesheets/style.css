@@ -19,7 +19,7 @@ body {
   gap: 0.5em;
   padding: 1.25em;
   padding-top: 3em;
-  font: 1rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
   background: var(--bg-color);
   color: var(--color);
   box-sizing: border-box;
@@ -53,6 +53,7 @@ p {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  font-size: inherit;
 }
 
 a {
@@ -95,7 +96,7 @@ a:focus {
 }
 
 .btn {
-  padding: 0.375em 0.625em;
+  padding: 0.525em;
   outline: none;
   box-shadow: none;
   border: 0.0625em solid var(--bg-light);
@@ -157,7 +158,7 @@ ul {
 
 .nav a {
   text-decoration: none;
-  font-size: large;
+  font-size: 120%;
 }
 
 .nav a:focus {
@@ -316,7 +317,7 @@ ul {
 
 article {
   width: 70%;
-  min-width: 18.75em;
+  min-width: 16.5em;
   padding: 0 0.625em;
   border: 0.0625em solid var(--color-link);
   border-radius: 0.1875em;
@@ -335,6 +336,7 @@ h2 {
   position: absolute;
   top: 0.125em;
   right: 0.125em;
+  padding: 0 0.25em;
 }
 
 .buttons {
@@ -393,6 +395,10 @@ h2 {
   .m-3 {
     margin: 0.3125em;
   }
+
+  body {
+    font-size: clamp(0.5rem, 1.5vw, 2rem) !important;
+  }
 }
 
 @media (orientation: portrait) {
@@ -406,10 +412,6 @@ h2 {
 
   .form-label {
     min-width: 17.5em;
-  }
-
-  nav {
-    font-size: large !important;
   }
 
   h1 {
