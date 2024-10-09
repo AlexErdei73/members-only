@@ -141,6 +141,7 @@ ul {
 	background-color: var(--bg-nav);
 	border-bottom: 0.0625em solid var(--color-link);
 	width: 100%;
+	max-width: 80em;
 	position: fixed;
 	z-index: 10;
 	top: 0;
@@ -418,6 +419,12 @@ h2 {
 	h1 {
 		margin: 0.5em;
 		font-size: 400%;
+	}
+}
+
+@media (min-width: 80em) {
+	.nav {
+		left: calc((100% - 80em) / 2);
 	}
 }
 
