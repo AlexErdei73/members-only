@@ -21,7 +21,7 @@ var aboutRouter = require("./routes/about");
 
 var app = express();
 
-app.use(
+/*app.use(
 	helmet({
 		contentSecurityPolicy: {
 			directives: {
@@ -33,7 +33,7 @@ app.use(
 		referrerPolicy: false,
 		originAgentCluster: false,
 	})
-);
+);*/
 
 //Without this middleware embedded youtube video is not working with helmet
 app.use((req, res, next) => {
