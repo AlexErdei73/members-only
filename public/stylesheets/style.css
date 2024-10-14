@@ -330,7 +330,7 @@ h2 {
 .btn-close {
   background-color: var(--bg-nav);
   color: var(--color-link);
-  font-size: large;
+  font-size: 150%;
   font-weight: bold;
   position: absolute;
   top: 0.125em;
