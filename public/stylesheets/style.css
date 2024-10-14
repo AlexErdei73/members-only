@@ -93,7 +93,7 @@ a:focus {
 }
 
 .btn {
-  padding: 0.525em;
+  padding: 0.4125em;
   outline: none;
   box-shadow: none;
   border: 0.0625em solid var(--bg-light);
@@ -102,7 +102,7 @@ a:focus {
 }
 
 .link-btn {
-  padding: 0.5em 0.75em 0.3125em;
+  padding: 0.3125em 0.75em 0.3125em;
 }
 
 .btn:focus {
@@ -340,12 +340,13 @@ h2 {
 
 .buttons {
   position: fixed;
-  top: 3.1875em;
+  top: 3.7375em;
   left: 0;
   background-color: var(--bg-color);
   z-index: 10;
-  height: 3.125em;
+  height: 2.8em;
   width: 100%;
+  max-width: 100em;
   padding: 0 1.875em;
   display: flex;
   align-items: center;
@@ -420,7 +421,8 @@ h2 {
 }
 
 @media (min-width: 100em) {
-  .nav {
+  .nav,
+  .buttons {
     left: calc((100% - 100em) / 2);
   }
 }
