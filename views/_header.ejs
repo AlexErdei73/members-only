@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<title><%= title %></title>
+		<title>Members only, YouTube blogs. <%= title ? title : "Home" %></title>
+		<meta name="description" content="Alex Erdei's solution for the members only project from the Odin Project. 
+		It's a YouTube blogging site, with session based user authentication and user, member and admin access levels.">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<link rel=" stylesheet" href="/stylesheets/lite-yt-embed.css" />
@@ -10,5 +12,5 @@
 
 	<body>
 		<%- include("_navigation") %>
-		<h1 class=<%= (title==="") ? "home" : "" %>><%= title %></h1>
+		<h1 class=<%= (title==="") ? "lyt-visually-hidden" : "" %>><%= title ? title : "Home" %></h1>
 
