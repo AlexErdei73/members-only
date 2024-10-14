@@ -21,19 +21,22 @@ var aboutRouter = require("./routes/about");
 
 var app = express();
 
-/*app.use(
+app.use(
 	helmet({
 		contentSecurityPolicy: {
 			directives: {
-				"frame-ancestors": ["'self'", "https://www.youtube.com/"],
-				frameSrc: ["'self'", "https://www.youtube.com/"],
-				childSrc: ["'self'", "https://www.youtube.com/"],
+				"frame-ancestors": ["'self'", "https://www.youtube-nocookie.com/"],
+				frameSrc: ["'self'", "https://www.youtube-nocookie.com/"],
+				childSrc: ["'self'", "https://www.youtube-nocookie.com/"],
+				"img-src": ["'self'", "https://i.ytimg.com/"],
+				"script-src": ["'self'", "https://www.youtube.com/"],
 			},
+			//reportOnly: true,
 		},
 		referrerPolicy: false,
 		originAgentCluster: false,
 	})
-);*/
+);
 
 //Without this middleware embedded youtube video is not working with helmet
 app.use((req, res, next) => {
