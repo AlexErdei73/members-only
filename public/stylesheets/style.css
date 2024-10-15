@@ -36,7 +36,7 @@ p {
 }
 
 .dragon {
-  background: var(--bg-color) url("../images/Chinese-Dragon.png");
+  background: var(--bg-color) url("../images/Chinese-Dragon.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
