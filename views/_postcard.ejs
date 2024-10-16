@@ -6,7 +6,6 @@
     <% } %>
   </div>
   <div class="card-body">
-    <!--iframe src="<%= post.youtube_url.replace("https://www.youtube.com/watch?v=", "") %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe -->
     <lite-youtube videoid="<%= post.youtube_url.replace("https://www.youtube.com/watch?v=", "") %>"></lite-youtube>
     <div class="card-info">
       <p><%= post.description %></p>
@@ -15,7 +14,7 @@
           <span><%= post.likes ? post.likes.length : 0 %></span>
         </div>
         <% if(currentUser) { %>
-        <a href="/posts/like/<%= post._id %>" class="btn btn-primary link-btn"><img src="/images/like.png" alt="" 
+        <a href="/posts/like/<%= post._id %>" class="btn btn-primary link-btn"><img src="/images/like.png" alt="Thumb's up"
           width="20px" height="20px" class="btn-icon"> Like</a>
         <% } %>
       </div>
