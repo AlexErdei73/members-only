@@ -1,19 +1,26 @@
 <%- include("_header") %> <% if (currentUser) { %>
 <div class="buttons">
-	<a href="/posts/create" class="btn btn-primary link-btn">Create Post</a>
-	<a href="/users/logout" class="btn btn-primary link-btn m-3">Log Out</a>
-	<% if (currentUser.membership_status !== "admin") { %>
-	<button type="button" class="btn btn-primary" id="btn-membership">
-		Membership
-	</button>
-	<% } %>
+  <a href="/posts/create" class="btn btn-primary link-btn">Create Post</a>
+  <a href="/users/logout" class="btn btn-primary link-btn m-3">Log Out</a>
+  <% if (currentUser.membership_status !== "admin") { %>
+  <button type="button" class="btn btn-primary" id="btn-membership">
+    Membership
+  </button>
+  <% } %>
 </div>
 <% } %> <% if (posts.length > 0) { %> <% posts.forEach(function(post) { %> <%-
 include("_postcard", { post: post }) %> <% }) %> <% } %> <%-
 include("_membership_modal_form") %>
 <div class="card">
-	<div class="card-body dragon"></div>
+  <img
+    src="/images/Chinese-Dragon.webp"
+    alt=""
+    width="50px"
+    height="200px"
+    loading="lazy"
+    class="card-body"
+  />
 </div>
-<script src="/javascript/handleModal.js"></script>
 <script src="/javascript/lite-yt-embed.js"></script>
+<script src="/javascript/handleModal.js" async></script>
 <%- include("_footer") %>
